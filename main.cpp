@@ -7,12 +7,12 @@
 using namespace std;
 // old project
 int main() {
-    string csvFilePath = "example.csv";
+    string csvFilePath = "../Crimes_-_2020_20231016.csv";
 
     ifstream csvFile(csvFilePath);
     if (!csvFile.is_open()) {
         cout << "Error opening CSV file." << endl;
-        return 1;
+        return 2;
     }
 
     vector<vector<string>> csvData;
