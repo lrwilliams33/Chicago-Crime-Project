@@ -3,7 +3,6 @@ project(Chicago_Crime_Project)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(.)
 
 add_executable(Chicago_Crime_Project
         main.cpp

@@ -46,17 +46,21 @@ int main() {
     csvFile.close();
      */
 
+
+    //create a load data function to call here and load all the excel sheet into a list
+
+
     cout << "Welcome!" << endl;
-    cout << "Enter 1 to use a B+ tree. Enter 2 to use a Hash Map." << endl;
-    string num;
-    getline(cin, num);
-    if(num == "1"){
-        cout << "You chose a B+ tree." << endl;
-        //initialize B+ tree here
+    cout << "Enter 1 to use _ sort. Enter 2 to use _ sort" << endl;
+    string sortMethod;
+    getline(cin, sortMethod);
+    if(sortMethod == "1"){
+        cout << "You chose _ sort." << endl;
+        //perform that sort on the list loaded above
     }
-    else if(num == "2"){
-        cout << "You chose a Hash Map." << endl;
-        //initialize Hash Map here
+    else if(sortMethod == "2"){
+        cout << "You chose _ sort." << endl;
+        //perform that sort on the list loaded above
     }
     else {
         cout << "You did not enter a valid number." << endl;
@@ -64,28 +68,29 @@ int main() {
     }
     cout << "Enter 1 to list community areas in sorted order by number of crimes." << endl;
     cout << "Enter 2 to search for a specific community area." << endl;
-    getline(cin, num);
-    if(num == "1"){
+    string input;
+    getline(cin, input);
+    if(input == "1"){
         cout << "Enter 1 for ascending order. Enter 2 for descending order." << endl;
-        getline(cin, num);
-        if(num == "1"){
+        getline(cin, input);
+        if(input == "1"){
             //print number of crimes in ascending order (see flow chart for what to print)
-        } else if(num == "2"){
+        } else if(input == "2"){
             //print number of crimes in descending order (see flow chart for what to print)
         } else {
             cout << "You did not enter a valid number." << endl;
             return 2;
         }
     }
-    else if(num == "2"){
+    else if(input == "2"){
         cout << "Enter 1 to search by community area ID. Enter 2 to search by community area name." << endl;
-        getline(cin, num);
-        if(num == "1"){
+        getline(cin, input);
+        if(input == "1"){
             string id;
             cout << "Enter the community area ID." << endl;
             getline(cin, id);
             //print info about community area (see flow chart for what to print)
-        } else if(num == "2"){
+        } else if(input == "2"){
             string name;
             cout << "Enter the community area name." << endl;
             getline(cin, name);
