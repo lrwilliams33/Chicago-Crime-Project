@@ -1,8 +1,0 @@
-//
-// Created by jackw on 11/27/2023.
-//
-
-#ifndef CHICAGO_CRIME_PROJECT_MAP_H
-#define CHICAGO_CRIME_PROJECT_MAP_H
-
-#endif //CHICAGO_CRIME_PROJECT_MAP_H

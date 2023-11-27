@@ -3,4 +3,4 @@ project(Chicago_Crime_Project)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Chicago_Crime_Project main.cpp node.h)
+add_executable(Chicago_Crime_Project main.cpp node.h map.h bplustree.h)
