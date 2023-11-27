@@ -41,6 +41,14 @@ int main() {
     getline(lineStream, cell, ',');
     cout << cell << endl;
 
+    cout << "Welcome!" << endl;
+    cout << "Enter 1 to use Hash Map. Enter 2 to use B+ tree." << endl;
+
+    string num;
+    getline(cin, num);
+    cout << num << endl;
+
+
     // Close the CSV file
     csvFile.close();
 
