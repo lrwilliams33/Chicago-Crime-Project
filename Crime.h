@@ -13,6 +13,7 @@ struct Crime {
     bool Arrest = false;
     bool Domestic = false;
 
+
     Crime(int communityArea, string& block, int id, bool arrest, bool domestic) {
         ComArea = communityArea;
         Block = block;
