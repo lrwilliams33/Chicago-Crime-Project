@@ -1,0 +1,49 @@
+Index: main.cpp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#include <iostream>\r\n#include <fstream>\r\n#include <sstream>\r\n#include <vector>\r\n#include <string>\r\n\r\nusing namespace std;\r\n// old project\r\nint main() {\r\n    /*\r\n    string csvFilePath = \"../Crimes_-_2020_20231016.csv\";\r\n\r\n    ifstream csvFile(csvFilePath);\r\n    if (!csvFile.is_open()) {\r\n        cout << \"Error opening CSV file.\" << endl;\r\n        return 1;\r\n    }\r\n\r\n    vector<vector<string>> csvData;\r\n\r\n    // Read the CSV file line by line\r\n    string line;\r\n\r\n    while (getline(csvFile, line)) {\r\n        vector<string> row;\r\n        stringstream lineStream(line);\r\n        string cell;\r\n\r\n        // Read each cell in the current row\r\n        while (getline(lineStream, cell, ',')) {\r\n            row.push_back(cell);\r\n        }\r\n\r\n        // Add the row to the vector of data\r\n        csvData.push_back(row);\r\n    }\r\n\r\n    getline(csvFile, line);\r\n    stringstream lineStream(line);\r\n    string cell;\r\n    getline(lineStream, cell, ',');\r\n    cout << cell << endl;\r\n\r\n\r\n    // Close the CSV file\r\n    csvFile.close();\r\n     */\r\n\r\n\r\n    //create a load data function to call here and load all the excel sheet into a list\r\n\r\n\r\n    cout << \"Welcome!\" << endl;\r\n    cout << \"Enter 1 to use _ sort. Enter 2 to use _ sort\" << endl;\r\n    string sortMethod;\r\n    getline(cin, sortMethod);\r\n    if(sortMethod == \"1\"){\r\n        cout << \"You chose _ sort.\" << endl;\r\n        //perform that sort on the list loaded above\r\n    }\r\n    else if(sortMethod == \"2\"){\r\n        cout << \"You chose _ sort.\" << endl;\r\n        //perform that sort on the list loaded above\r\n    }\r\n    else {\r\n        cout << \"You did not enter a valid number.\" << endl;\r\n        return 2;\r\n    }\r\n    cout << \"Enter 1 to list community areas in sorted order by number of crimes.\" << endl;\r\n    cout << \"Enter 2 to search for a specific community area.\" << endl;\r\n    string input;\r\n    getline(cin, input);\r\n    if(input == \"1\"){\r\n        cout << \"Enter 1 for ascending order. Enter 2 for descending order.\" << endl;\r\n        getline(cin, input);\r\n        if(input == \"1\"){\r\n            //print number of crimes in ascending order (see flow chart for what to print)\r\n        } else if(input == \"2\"){\r\n            //print number of crimes in descending order (see flow chart for what to print)\r\n        } else {\r\n            cout << \"You did not enter a valid number.\" << endl;\r\n            return 2;\r\n        }\r\n    }\r\n    else if(input == \"2\"){\r\n        cout << \"Enter 1 to search by community area ID. Enter 2 to search by community area name.\" << endl;\r\n        getline(cin, input);\r\n        if(input == \"1\"){\r\n            string id;\r\n            cout << \"Enter the community area ID.\" << endl;\r\n            getline(cin, id);\r\n            //print info about community area (see flow chart for what to print)\r\n        } else if(input == \"2\"){\r\n            string name;\r\n            cout << \"Enter the community area name.\" << endl;\r\n            getline(cin, name);\r\n            //convert to ID for access in data structure\r\n            //print info about community area (see flow chart for what to print)\r\n        } else {\r\n            cout << \"You did not enter a valid number.\" << endl;\r\n            return 2;\r\n        }\r\n    }\r\n    else {\r\n        cout << \"You did not enter a valid number.\" << endl;\r\n        return 2;\r\n    }\r\n\r\n    return 0;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/main.cpp b/main.cpp
+--- a/main.cpp	
++++ b/main.cpp	
+@@ -107,4 +107,4 @@
+     }
+ 
+     return 0;
+-}
++}
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/modules.xml	
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/Chicago-Crime-Project.iml" filepath="$PROJECT_DIR$/.idea/Chicago-Crime-Project.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/Chicago-Crime-Project.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/Chicago-Crime-Project.iml b/.idea/Chicago-Crime-Project.iml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/Chicago-Crime-Project.iml	
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module classpath="CMake" type="CPP_MODULE" version="4" />
+\ No newline at end of file
