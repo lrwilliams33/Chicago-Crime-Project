@@ -8,55 +8,65 @@
 
 using namespace std;
 
-void loaddata(neneds paprameter){
-    /*
-    string csvFilePath = "../Crimes_-_2020_20231016.csv";
+// load the data set into the map object
+void loadData(unordered_map<int, vector<Crime*>>& data){
 
+    string csvFilePath = "../Crimes_-_2020_20231016.csv";
     ifstream csvFile(csvFilePath);
     if (!csvFile.is_open()) {
         cout << "Error opening CSV file." << endl;
-        return 1;
+        return;
     }
 
-    vector<vector<string>> csvData;
-
-    // Read the CSV file line by line
     string line;
-    while (getline(lineStream, cell, ',')) {
-        row.push_back(cell);
-    }
-        while (getline(csvFile, line)) {
-            vector<string> row;
-            stringstream lineStream(line);
-            string cell;
-
-        // Add the row to the vector of data
-        csvData.push_back(row);
-    }
-
+    //get the header line
     getline(csvFile, line);
-    stringstream lineStream(line);
-    string cell;
-    getline(lineStream, cell, ',');
-    cout << cell << endl;
+    while (getline(csvFile, line)) {
+        string ComArea;
+        string Block;
+        string ID;
+        bool Arrest = false;
+        bool Domestic = false;
 
+        stringstream lineStream(line);
+        string cell;
 
+        getline(lineStream, ID, ','); //get the ID
+        getline(lineStream, cell, ','); //get the case number
+        getline(lineStream, cell, ','); //get the date
+        getline(lineStream, Block, ','); //get the block
+        getline(lineStream, cell, ','); //get the IUCR
+        getline(lineStream, cell, ','); //get the Primary Type
+        getline(lineStream, cell, ','); //get the Description
+        getline(lineStream, cell, ','); //get the Location
+        getline(lineStream, cell, ','); //get the Arrest
+        if(cell == "TRUE"){
+            Arrest = true;
+        }
+        getline(lineStream, cell, ','); //get the Domestic
+        if(cell == "TRUE"){
+            Domestic = true;
+        }
+        getline(lineStream, cell, ','); //get the Beat
+        getline(lineStream, cell, ','); //get the District
+        getline(lineStream, cell, ','); //get the Ward
+        getline(lineStream, ComArea, ','); //get the Community Area
+        Crime* c = new Crime(std::stoi(ComArea), Block, std::stoi(ID), Arrest, Domestic);
+        data[std::stoi(ComArea)].push_back(c);
+    }
     // Close the CSV file
     csvFile.close();
-    */
 }
-
 
 int main() {
 
-    //key is integer representation of community area, value is a list of data points (crimes)
-    unordered_map<int, vector<Crime>> data;
-    //FIXME:
-    loaddata(&data);
-
+    // create and load data set in the form of a map
+    // key is integer representation of community area; value is a list of data points (crimes) in that community area
+    unordered_map<int, vector<Crime*>> data;
+    loadData(data);
 
     cout << "Welcome!" << endl;
-    cout << "Enter 1 to use _ sort. Enter 2 to use _ sort" << endl;
+    cout << "Enter 1 to use Quick Sort. Enter 2 to use Tim Sort" << endl;
     string sortMethod;
     getline(cin, sortMethod);
     if(sortMethod == "1"){
