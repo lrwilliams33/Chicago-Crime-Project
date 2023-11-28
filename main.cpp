@@ -3,10 +3,12 @@
 #include <sstream>
 #include <vector>
 #include <string>
+#include <unordered_map>
+#include "Crime.h"
 
 using namespace std;
-// old project
-int main() {
+
+void loaddata(neneds paprameter){
     /*
     string csvFilePath = "../Crimes_-_2020_20231016.csv";
 
@@ -20,16 +22,13 @@ int main() {
 
     // Read the CSV file line by line
     string line;
-
-    while (getline(csvFile, line)) {
-        vector<string> row;
-        stringstream lineStream(line);
-        string cell;
-
-        // Read each cell in the current row
-        while (getline(lineStream, cell, ',')) {
-            row.push_back(cell);
-        }
+    while (getline(lineStream, cell, ',')) {
+        row.push_back(cell);
+    }
+        while (getline(csvFile, line)) {
+            vector<string> row;
+            stringstream lineStream(line);
+            string cell;
 
         // Add the row to the vector of data
         csvData.push_back(row);
@@ -44,10 +43,16 @@ int main() {
 
     // Close the CSV file
     csvFile.close();
-     */
+    */
+}
 
 
-    //create a load data function to call here and load all the excel sheet into a list
+int main() {
+
+    //key is integer representation of community area, value is a list of data points (crimes)
+    unordered_map<int, vector<Crime>> data;
+    //FIXME:
+    loaddata(&data);
 
 
     cout << "Welcome!" << endl;
@@ -55,17 +60,18 @@ int main() {
     string sortMethod;
     getline(cin, sortMethod);
     if(sortMethod == "1"){
-        cout << "You chose _ sort." << endl;
-        //perform that sort on the list loaded above
+        cout << "You chose Quick Sort." << endl;
+        //perform sort and dispense time
     }
     else if(sortMethod == "2"){
-        cout << "You chose _ sort." << endl;
-        //perform that sort on the list loaded above
+        cout << "You chose Tim Sort." << endl;
+        //perform sort and dispense time
     }
     else {
         cout << "You did not enter a valid number." << endl;
         return 2;
     }
+
     cout << "Enter 1 to list community areas in sorted order by number of crimes." << endl;
     cout << "Enter 2 to search for a specific community area." << endl;
     string input;
