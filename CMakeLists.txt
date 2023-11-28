@@ -6,4 +6,4 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(Chicago_Crime_Project
         main.cpp
-        node.h)
+        Crime.h)

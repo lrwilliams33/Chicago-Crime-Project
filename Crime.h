@@ -6,16 +6,16 @@
 #include <string>
 using namespace std;
 
-struct node {
+struct Crime {
     int ComArea = 0;
-    string Type = "no type";
+    string Block = "";
     int ID = 0;
     bool Arrest = false;
     bool Domestic = false;
 
-    node(int communityArea, string& type, int id, bool arrest, bool domestic) {
+    Crime(int communityArea, string& block, int id, bool arrest, bool domestic) {
         ComArea = communityArea;
-        Type = type;
+        Block = block;
         ID = id;
         Arrest = arrest;
         Domestic = domestic;
@@ -23,6 +23,4 @@ struct node {
 };
 
 #endif //P3_NODE_H
-
-
 #endif //CHICAGO_CRIME_NODE_H
