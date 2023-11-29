@@ -9,8 +9,58 @@ using namespace std;
 
 int run = 1; //figure out run variable number afterwards, 1 is just a random number
 
-void insertionSort(parameters)
-void merge(parameters)
+void insertionSort(parameters){
+
+}
+
+//mergesort and timsort function are basically done, just have to do insertion sort
+
+void merge(vector<Crime> &crimesVect, int left, int mid, int right){
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+    vector<Crime> crimes1;
+    vector<Crime> crimes2;
+    for(int i = 0; i < n1; i++){
+        crimes1.at(i) = crimesVect.at(left + 1);
+    }
+    for(int j = 0; j < n2; j++){
+        crimes2.at(j) = crimesVect.at(mid + 1 + j);
+    }
+    int i, j, k;
+    i = 0;
+    j = 0;
+    k = left;
+    while( i < n1 && j < n2){
+        if (crimesVect.at(i).Block <= crimesVect.at(j).Block){  // figure out what we are comparing for Crime Objects, not sure if it is just block
+            crimesVect.at(k) = crimes1.at(i);
+            i++;
+        }
+        else{
+            crimesVect.at(k) = crimes2.at(j);
+            j++;
+        }
+        k++;
+    }
+    while(i < n1){
+        crimesVect.at(k) = crimes1.at(i);
+        i++;
+        k++;
+    }
+    while(j < n2){
+        crimesVect.at(k) = crimes2.at(j);
+        j++;
+        k++;
+    }
+}
+
+void mergeSort(vector<Crime> &crimesVect, int left, int right){
+    if (left < right){
+        int mid = left + (right - left) / 2;
+        mergeSort(crimesVect, left, mid);
+        mergeSort(crimesVect, mid + 1, right);
+        merge(crimesVect, left, mid, right);
+    }
+}
 
 void timSort(vector<Crime> &crimesVect, int vect_size){
     for (int i = 0; i < crimesVect.size(); i+=run){

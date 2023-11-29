@@ -20,7 +20,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cddbf3c-7dec-48b6-a285-f4e261a62c20" name="Changes" comment="">
+    <list default="true" id="4cddbf3c-7dec-48b6-a285-f4e261a62c20" name="Changes" comment="timsort outline">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_27_2023_11_32_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_27_2023_11_32_AM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_28_2023_5_04_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_28_2023_5_04_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_28_2023_5_47_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_28_2023_5_47_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_28_2023_5_47_PM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_28_2023_5_47_PM__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Crime.h" beforeDir="false" afterPath="$PROJECT_DIR$/Crime.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QuickSort.h" beforeDir="false" afterPath="$PROJECT_DIR$/QuickSort.h" afterDir="false" />
@@ -84,6 +88,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="CMake Application.Unnamed" />
       <item itemvalue="CMake Application.Chicago_Crime_Project" />
@@ -101,7 +110,16 @@
       <workItem from="1701101920218" duration="68000" />
       <workItem from="1701208874374" duration="4815000" />
       <workItem from="1701269195200" duration="3060000" />
+      <workItem from="1701269267396" duration="2655000" />
     </task>
+    <task id="LOCAL-00001" summary="timsort outline">
+      <created>1701214314601</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701214314601</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,5 +146,8 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="timsort outline" />
+    <option name="LAST_COMMIT_MESSAGE" value="timsort outline" />
   </component>
 </project>
