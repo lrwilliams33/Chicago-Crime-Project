@@ -5,6 +5,7 @@
 #include <string>
 #include <unordered_map>
 #include "Crime.h"
+#include "QuickSort.h"
 
 using namespace std;
 
@@ -34,7 +35,8 @@ void loadData(unordered_map<int, vector<Crime*>>& data){
         getline(lineStream, ID, ','); //get the ID
         getline(lineStream, cell, ','); //get the case number
         getline(lineStream, cell, ','); //get the date
-        getline(lineStream, Block, ','); //get the block
+        getline(lineStream, cell, ','); //get the block
+        Block = cell.substr(8);
         getline(lineStream, cell, ','); //get the IUCR
         getline(lineStream, cell, ','); //get the Primary Type
         getline(lineStream, cell, ','); //get the Description
@@ -58,6 +60,7 @@ void loadData(unordered_map<int, vector<Crime*>>& data){
     csvFile.close();
 }
 
+/*
 int main() {
 
     // create and load data set in the form of a map
@@ -123,4 +126,26 @@ int main() {
     }
 
     return 0;
+}
+ */
+
+int main(){
+
+//    Crime* a = new Crime(45, "123XX Orange ST", 1, true, false);
+//    Crime* b = new Crime(45, "056XX Arange ST", 1, true, false);
+//    Crime* c = new Crime(45, "123XX ZZpple ST", 1, true, false);
+
+    unordered_map<int, vector<Crime*>> data;
+    loadData(data);
+
+    vector<Crime*> comArea45 = data[63];
+
+    quickSort(comArea45, 0, comArea45.size()-1);
+
+
+    for(int i = 0; i < comArea45.size(); i++){
+        cout << comArea45[i]->Block << endl;
+
+    }
+
 }
