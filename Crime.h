@@ -9,14 +9,17 @@ using namespace std;
 struct Crime {
     int ComArea = 0;
     string Block = "";
-    int ID = 0;
+    string CaseNumber = "";
     bool Arrest = false;
     bool Domestic = false;
 
-    Crime(int communityArea, string block, int id, bool arrest, bool domestic) {
+    Crime(int communityArea, string block, string caseNumber, bool arrest, bool domestic) {
         ComArea = communityArea;
         Block = block;
-        ID = id;
+        for (int i = 0; i < Block.length(); i++) {
+            Block[i] = std::toupper(Block[i]);
+        }
+        CaseNumber = caseNumber;
         Arrest = arrest;
         Domestic = domestic;
     }
@@ -24,7 +27,7 @@ struct Crime {
     Crime(Crime &c){
         ComArea = c.ComArea;
         Block = c.Block;
-        ID = c.ID;
+        CaseNumber = c.CaseNumber;
         Arrest = c.Arrest;
         Domestic = c.Domestic;
     }
@@ -32,7 +35,7 @@ struct Crime {
     void operator=(const Crime& c){
         ComArea = c.ComArea;
         Block = c.Block;
-        ID = c.ID;
+        CaseNumber = c.CaseNumber;
         Arrest = c.Arrest;
         Domestic = c.Domestic;
     }

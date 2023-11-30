@@ -7,6 +7,7 @@
 #include "Crime.h"
 #include "QuickSort.h"
 #include "TimSort.h"
+#include <chrono>
 
 using namespace std;
 
@@ -26,15 +27,15 @@ void loadData(unordered_map<int, vector<Crime*>>& data){
     while (getline(csvFile, line)) {
         string ComArea;
         string Block;
-        string ID;
+        string CaseNum;
         bool Arrest = false;
         bool Domestic = false;
 
         stringstream lineStream(line);
         string cell;
 
-        getline(lineStream, ID, ','); //get the ID
-        getline(lineStream, cell, ','); //get the case number
+        getline(lineStream, cell, ','); //get the ID
+        getline(lineStream, CaseNum, ','); //get the case number
         getline(lineStream, cell, ','); //get the date
         getline(lineStream, cell, ','); //get the block
         Block = cell.substr(8);
@@ -54,14 +55,13 @@ void loadData(unordered_map<int, vector<Crime*>>& data){
         getline(lineStream, cell, ','); //get the District
         getline(lineStream, cell, ','); //get the Ward
         getline(lineStream, ComArea, ','); //get the Community Area
-        Crime* c = new Crime(std::stoi(ComArea), Block, std::stoi(ID), Arrest, Domestic);
+        Crime* c = new Crime(std::stoi(ComArea), Block, CaseNum, Arrest, Domestic);
         data[std::stoi(ComArea)].push_back(c);
     }
     // Close the CSV file
     csvFile.close();
 }
 
-/*
 int main() {
 
     // create and load data set in the form of a map
@@ -75,11 +75,23 @@ int main() {
     getline(cin, sortMethod);
     if(sortMethod == "1"){
         cout << "You chose Quick Sort." << endl;
-        //perform sort and dispense time
+        auto start = chrono::high_resolution_clock::now();
+        for(int i = 0; i < 78; i++){
+            quickSort(data[i], 0, data[i].size()-1);
+        }
+        auto end = chrono::high_resolution_clock::now();
+        auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
+        cout << "Time taken: " << duration.count() << " ms" << endl;
     }
     else if(sortMethod == "2"){
         cout << "You chose Tim Sort." << endl;
-        //perform sort and dispense time
+        auto start = chrono::high_resolution_clock::now();
+        for(int i = 0; i < 78; i++){
+            timSort(data[i], data[i].size());
+        }
+        auto end = chrono::high_resolution_clock::now();
+        auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
+        cout << "Time taken: " << duration.count() << " ms" << endl;
     }
     else {
         cout << "You did not enter a valid number." << endl;
@@ -103,21 +115,32 @@ int main() {
         }
     }
     else if(input == "2"){
-        cout << "Enter 1 to search by community area ID. Enter 2 to search by community area name." << endl;
-        getline(cin, input);
-        if(input == "1"){
-            string id;
-            cout << "Enter the community area ID." << endl;
-            getline(cin, id);
-            //print info about community area (see flow chart for what to print)
-        } else if(input == "2"){
-            string name;
-            cout << "Enter the community area name." << endl;
-            getline(cin, name);
-            //convert to ID for access in data structure
-            //print info about community area (see flow chart for what to print)
+        string idStr;
+        cout << "Enter the community area number:";
+        getline(cin, idStr);
+        int id = stoi(idStr);
+        if(id >= 0 && id <= 77){
+            vector<Crime*> ComAreaCrimes = data[id];
+            for(Crime* c : ComAreaCrimes){
+                cout << c->Block << " - Case Number: " << c->CaseNumber << ", Arrest: ";
+                if(c->Arrest)
+                    cout << "Yes";
+                else
+                    cout << "No";
+                cout << ", Domestic: ";
+                if(c->Domestic)
+                    cout << "Yes";
+                else
+                    cout << "No";
+                cout << endl;
+            }
+            cout << "-----" << endl << "Total crimes in community area " << id << ": " << ComAreaCrimes.size() << endl;
         } else {
-            cout << "You did not enter a valid number." << endl;
+            cout
+                    << "You didn't enter a valid community area number. See this link for more information about the community areas of Chicago: "
+                    << endl
+                    << "https://www.chicago.gov/content/dam/city/depts/doit/general/GIS/Chicago_Maps/Citywide_Maps/Community_Areas_W_Numbers.pdf"
+                    << endl;
             return 2;
         }
     }
@@ -127,26 +150,4 @@ int main() {
     }
 
     return 0;
-}
- */
-
-int main(){
-//testing crimes
-//    Crime* a = new Crime(45, "123XX Arange ST", 1, true, false);
-//    Crime* b = new Crime(45, "056XX Arange ST", 1, true, false);
-//    Crime* c = new Crime(45, "456XX AZpple ST", 1, true, false);
-
-    unordered_map<int, vector<Crime*>> data;
-    loadData(data);
-
-    vector<Crime*> comArea45 = data[45];
-    //vector<Crime*> comArea45 = {a, b, c};
-
-    timSort(comArea45, comArea45.size());
-
-    for(int i = 0; i < comArea45.size(); i++){
-        cout << comArea45[i]->Block << endl;
-
-    }
-
 }

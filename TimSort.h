@@ -71,7 +71,7 @@ void mergeSort(vector<Crime*> &crimesVect, int left, int right){
 }
 
 void timSort(vector<Crime*> &crimesVect, int vect_size){
-    for (int i = 0; i < crimesVect.size(); i+=run){
+    for (int i = 0; i < vect_size; i+=run){
         insertionSort(crimesVect, i, min((i + run - 1), (vect_size - 1)));
     }
     for (int size = run; size < vect_size; size = 2 * size){
