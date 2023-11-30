@@ -131,19 +131,18 @@ int main() {
  */
 
 int main(){
-
-    Crime* a = new Crime(45, "123XX Orange ST", 1, true, false);
-    Crime* b = new Crime(45, "056XX Arange ST", 1, true, false);
-    Crime* c = new Crime(45, "123XX ZZpple ST", 1, true, false);
+//testing crimes
+//    Crime* a = new Crime(45, "123XX Arange ST", 1, true, false);
+//    Crime* b = new Crime(45, "056XX Arange ST", 1, true, false);
+//    Crime* c = new Crime(45, "456XX AZpple ST", 1, true, false);
 
     unordered_map<int, vector<Crime*>> data;
     loadData(data);
 
-    //vector<Crime*> comArea45 = data[45];
-    vector<Crime*> comArea45 = {a, b, c};
+    vector<Crime*> comArea45 = data[45];
+    //vector<Crime*> comArea45 = {a, b, c};
 
     timSort(comArea45, comArea45.size());
-
 
     for(int i = 0; i < comArea45.size(); i++){
         cout << comArea45[i]->Block << endl;
