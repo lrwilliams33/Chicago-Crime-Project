@@ -6,6 +6,7 @@
 #include <unordered_map>
 #include "Crime.h"
 #include "QuickSort.h"
+#include "TimSort.h"
 
 using namespace std;
 
@@ -131,16 +132,17 @@ int main() {
 
 int main(){
 
-//    Crime* a = new Crime(45, "123XX Orange ST", 1, true, false);
-//    Crime* b = new Crime(45, "056XX Arange ST", 1, true, false);
-//    Crime* c = new Crime(45, "123XX ZZpple ST", 1, true, false);
+    Crime* a = new Crime(45, "123XX Orange ST", 1, true, false);
+    Crime* b = new Crime(45, "056XX Arange ST", 1, true, false);
+    Crime* c = new Crime(45, "123XX ZZpple ST", 1, true, false);
 
     unordered_map<int, vector<Crime*>> data;
     loadData(data);
 
-    vector<Crime*> comArea45 = data[63];
+    //vector<Crime*> comArea45 = data[45];
+    vector<Crime*> comArea45 = {a, b, c};
 
-    quickSort(comArea45, 0, comArea45.size()-1);
+    timSort(comArea45, comArea45.size());
 
 
     for(int i = 0; i < comArea45.size(); i++){

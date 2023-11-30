@@ -21,7 +21,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cddbf3c-7dec-48b6-a285-f4e261a62c20" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Crime.h" beforeDir="false" afterPath="$PROJECT_DIR$/Crime.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuickSort.h" beforeDir="false" afterPath="$PROJECT_DIR$/QuickSort.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,11 +74,6 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.Chicago_Crime_Project">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Chicago_Crime_Project" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Chicago_Crime_Project" TARGET_NAME="Chicago_Crime_Project" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Chicago_Crime_Project" RUN_TARGET_NAME="Chicago_Crime_Project">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -102,8 +100,7 @@
       <workItem from="1701100512737" duration="1325000" />
       <workItem from="1701101920218" duration="68000" />
       <workItem from="1701208874374" duration="4815000" />
-      <workItem from="1701269195200" duration="4457000" />
-      <workItem from="1701305441942" duration="3000" />
+      <workItem from="1701269195200" duration="3060000" />
     </task>
     <servers />
   </component>
@@ -120,5 +117,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/QuickSort.h</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
