@@ -26,8 +26,8 @@ void insertionSort(vector<Crime*>& crimesVect, int left, int right){
 void merge(vector<Crime*> &crimesVect, int left, int mid, int right){
     int n1 = mid - left + 1;
     int n2 = right - mid;
-    vector<Crime*> crimes1(crimesVect.size());
-    vector<Crime*> crimes2(crimesVect.size());
+    vector<Crime*> crimes1(n1);
+    vector<Crime*> crimes2(n2);
     for(int i = 0; i < n1; i++){
         crimes1.at(i) = crimesVect.at(left + i);
     }
@@ -39,7 +39,7 @@ void merge(vector<Crime*> &crimesVect, int left, int mid, int right){
     j = 0;
     k = left;
     while( i < n1 && j < n2){
-        if (crimesVect.at(i)->Block.compare(crimesVect.at(j)->Block) <= 0){  // figure out what we are comparing for Crime Objects, not sure if it is just block
+        if (crimes1.at(i)->Block.compare(crimes2.at(j)->Block) <= 0){
             crimesVect.at(k) = crimes1.at(i);
             i++;
         }
