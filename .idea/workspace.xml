@@ -22,7 +22,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4cddbf3c-7dec-48b6-a285-f4e261a62c20" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Crime.h" beforeDir="false" afterPath="$PROJECT_DIR$/Crime.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuickSort.h" beforeDir="false" afterPath="$PROJECT_DIR$/QuickSort.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TimSort.h" beforeDir="false" afterPath="$PROJECT_DIR$/TimSort.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
@@ -84,11 +84,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="CMake Application.Unnamed" />
       <item itemvalue="CMake Application.Chicago_Crime_Project" />
@@ -106,7 +101,8 @@
       <workItem from="1701101920218" duration="68000" />
       <workItem from="1701208874374" duration="4815000" />
       <workItem from="1701269195200" duration="3060000" />
-      <workItem from="1701374716303" duration="2846000" />
+      <workItem from="1701374716303" duration="3564000" />
+      <workItem from="1701438917491" duration="3297000" />
     </task>
     <servers />
   </component>
@@ -128,9 +124,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/QuickSort.h</url>
-          <line>15</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/main.cpp</url>
+          <line>127</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
