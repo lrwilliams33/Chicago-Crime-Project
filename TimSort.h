@@ -4,15 +4,12 @@
 #include <vector>
 using namespace std;
 
-//determine RUN Variable before first iteration of timSort
-//vect_size is initial size of vector passed in and is different from the size variable in the second for loop of timeSort
-
-int run = 1; //figure out run variable number afterwards, 1 is just a random number
-
+// insertion sort helper function
 void insertionSort(vector<Crime*>& crimesVect, int left, int right){
     for (int i = left + 1; i <= right; i++) {
         Crime* temp = crimesVect.at(i);
         int j = i - 1;
+        // continually move elements greater than temp up 1 space
         while (j >= left && crimesVect.at(j)->Block.compare(temp->Block) > 0) {
             crimesVect.at(j + 1) = crimesVect.at(j);
             j--;
@@ -21,9 +18,9 @@ void insertionSort(vector<Crime*>& crimesVect, int left, int right){
     }
 }
 
-//mergesort and timsort function are basically done, just have to do insertion sort
-
+// merge helper function (like merge sort merge function)
 void merge(vector<Crime*> &crimesVect, int left, int mid, int right){
+    // defining and populate both sub arrays
     int n1 = mid - left + 1;
     int n2 = right - mid;
     vector<Crime*> crimes1(n1);
@@ -34,6 +31,7 @@ void merge(vector<Crime*> &crimesVect, int left, int mid, int right){
     for(int j = 0; j < n2; j++){
         crimes2.at(j) = crimesVect.at(mid + 1 + j);
     }
+    // merging the two sub arrays back together in the appropriate order
     int i, j, k;
     i = 0;
     j = 0;
@@ -49,6 +47,7 @@ void merge(vector<Crime*> &crimesVect, int left, int mid, int right){
         }
         k++;
     }
+    // get any remaining elements in either sub array
     while(i < n1){
         crimesVect.at(k) = crimes1.at(i);
         i++;
@@ -61,19 +60,15 @@ void merge(vector<Crime*> &crimesVect, int left, int mid, int right){
     }
 }
 
-void mergeSort(vector<Crime*> &crimesVect, int left, int right){
-    if (left < right){
-        int mid = left + (right - left) / 2;
-        mergeSort(crimesVect, left, mid);
-        mergeSort(crimesVect, mid + 1, right);
-        merge(crimesVect, left, mid, right);
-    }
-}
-
+// main timSort function
 void timSort(vector<Crime*> &crimesVect, int vect_size){
+    // run variable changes influences speed of the sorting algorithm - was chose based on testing
+    int run = 32;
+    // call insertion sort on sub arrays of size run
     for (int i = 0; i < vect_size; i+=run){
         insertionSort(crimesVect, i, min((i + run - 1), (vect_size - 1)));
     }
+    // merge all those sorted sub arrays of size run together using the merge function
     for (int size = run; size < vect_size; size = 2 * size){
         for (int left = 0; left < vect_size; left += 2 * size){
             int right = min((left + 2 * size - 1), (vect_size - 1));

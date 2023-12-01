@@ -6,6 +6,8 @@
 #include <string>
 using namespace std;
 
+// Crime Object consists of a community area number (ComArea), a street (Block), a crime case number (CaseNumber),
+// an Arrest boolean for if the crime resulted in arrest, and a Domestic boolean for if the crime was domestic
 struct Crime {
     int ComArea = 0;
     string Block = "";
@@ -13,9 +15,11 @@ struct Crime {
     bool Arrest = false;
     bool Domestic = false;
 
+    // constructor
     Crime(int communityArea, string block, string caseNumber, bool arrest, bool domestic) {
         ComArea = communityArea;
         Block = block;
+        // this makes sure the Block string is all uppercase for consistency and sorting
         for (int i = 0; i < Block.length(); i++) {
             Block[i] = std::toupper(Block[i]);
         }
@@ -24,6 +28,7 @@ struct Crime {
         Domestic = domestic;
     }
 
+    // copy constructor
     Crime(Crime &c){
         ComArea = c.ComArea;
         Block = c.Block;
@@ -32,6 +37,7 @@ struct Crime {
         Domestic = c.Domestic;
     }
 
+    // copy assignment operator
     void operator=(const Crime& c){
         ComArea = c.ComArea;
         Block = c.Block;
