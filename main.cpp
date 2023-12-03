@@ -65,6 +65,74 @@ void loadData(unordered_map<int, vector<Crime*>>& data){
     csvFile.close();
 }
 
+// get the 3 community areas with the largest vectors = most number of crimes
+void getThreeMax(unordered_map<int, vector<Crime*>>& data){
+    vector<Crime*> max1 = data[1];
+    vector<Crime*> max2 = data[1];
+    vector<Crime*> max3 = data[1];
+    for(int i = 2; i <= 77; i++){
+        vector<Crime*> curr = data[i];
+        if(curr.size() > max1.size()){
+            max3 = max2;
+            max2 = max1;
+            max1 = curr;
+        } else if(curr.size() > max2.size()){
+            max3 = max2;
+            max2 = curr;
+        } else if(curr.size() > max3.size()){
+            max3 = curr;
+        }
+    }
+    cout << "1. #" << max1[0]->ComArea << " - Number of Crimes: " << max1.size() << endl;
+    cout << "2. #" << max2[0]->ComArea << " - Number of Crimes: " << max2.size() << endl;
+    cout << "3. #" << max3[0]->ComArea << " - Number of Crimes: " << max3.size() << endl;
+}
+
+// get the 3 community areas with the smallest vectors = least number of crimes
+void getThreeMin(unordered_map<int, vector<Crime*>>& data){
+    vector<Crime*> min1 = data[1];
+    vector<Crime*> min2 = data[1];
+    vector<Crime*> min3 = data[1];
+    for(int i = 2; i <= 77; i++){
+        vector<Crime*> curr = data[i];
+        if(curr.size() < min1.size()){
+            min3 = min2;
+            min2 = min1;
+            min1 = curr;
+        } else if(curr.size() < min2.size()){
+            min3 = min2;
+            min2 = curr;
+        } else if(curr.size() < min3.size()){
+            min3 = curr;
+        }
+    }
+    cout << "1. #" << min1[0]->ComArea << " - Number of Crimes: " << min1.size() << endl;
+    cout << "2. #" << min2[0]->ComArea << " - Number of Crimes: " << min2.size() << endl;
+    cout << "3. #" << min3[0]->ComArea << " - Number of Crimes: " << min3.size() << endl;
+}
+
+// printing crimes in that community area sorted by Block alphabetically from previous sorting method
+void getInfo(unordered_map<int, vector<Crime*>>& data, int id){
+    // data validation to make sure is valid community area number [1, 77]
+    vector<Crime*> ComAreaCrimes = data[id];
+    for(Crime* c : ComAreaCrimes){
+        // display the Block, Case Number, and whether it was Domestic and resulted in Arrest
+        cout << c->Block << " - Case Number: " << c->CaseNumber << ", Arrest: ";
+        if(c->Arrest)
+            cout << "Yes";
+        else
+            cout << "No";
+        cout << ", Domestic: ";
+        if(c->Domestic)
+            cout << "Yes";
+        else
+            cout << "No";
+        cout << endl;
+    }
+    // print the total number of crimes in that community area at the end
+    cout << "-----" << endl << "Total crimes in community area " << id << ": " << ComAreaCrimes.size() << endl;
+}
+
 // main driver
 int main() {
     // create and load data set in the form of a map
@@ -116,48 +184,10 @@ int main() {
         getline(cin, input);
         if(input == "1"){
             // get the 3 community areas with the largest vectors = most number of crimes
-            vector<Crime*> max1 = data[1];
-            vector<Crime*> max2 = data[1];
-            vector<Crime*> max3 = data[1];
-            for(int i = 2; i <= 77; i++){
-                vector<Crime*> curr = data[i];
-                if(curr.size() > max1.size()){
-                    max3 = max2;
-                    max2 = max1;
-                    max1 = curr;
-                } else if(curr.size() > max2.size()){
-                    max3 = max2;
-                    max2 = curr;
-                } else if(curr.size() > max3.size()){
-                    max3 = curr;
-                }
-            }
-            cout << "1. #" << max1[0]->ComArea << " - Number of Crimes: " << max1.size() << endl;
-            cout << "2. #" << max2[0]->ComArea << " - Number of Crimes: " << max2.size() << endl;
-            cout << "3. #" << max3[0]->ComArea << " - Number of Crimes: " << max3.size() << endl;
-
+            getThreeMax(data);
         } else if(input == "2"){
             // get the 3 community areas with the smallest vectors = least number of crimes
-            vector<Crime*> min1 = data[1];
-            vector<Crime*> min2 = data[1];
-            vector<Crime*> min3 = data[1];
-            for(int i = 2; i <= 77; i++){
-                vector<Crime*> curr = data[i];
-                if(curr.size() < min1.size()){
-                    min3 = min2;
-                    min2 = min1;
-                    min1 = curr;
-                } else if(curr.size() < min2.size()){
-                    min3 = min2;
-                    min2 = curr;
-                } else if(curr.size() < min3.size()){
-                    min3 = curr;
-                }
-            }
-            cout << "1. #" << min1[0]->ComArea << " - Number of Crimes: " << min1.size() << endl;
-            cout << "2. #" << min2[0]->ComArea << " - Number of Crimes: " << min2.size() << endl;
-            cout << "3. #" << min3[0]->ComArea << " - Number of Crimes: " << min3.size() << endl;
-
+            getThreeMin(data);
         } else {
             cout << "You did not enter a valid number." << endl;
             return 2;
@@ -172,32 +202,14 @@ int main() {
         cout << "Enter the community area number:";
         getline(cin, idStr);
         int id = stoi(idStr);
+        // display info about each crime in that community area
         // data validation to make sure is valid community area number [1, 77]
         if(id >= 0 && id <= 77){
-            vector<Crime*> ComAreaCrimes = data[id];
-            for(Crime* c : ComAreaCrimes){
-                // display the Block, Case Number, and whether it was Domestic and resulted in Arrest
-                // printing sorted by Block alphabetically from previous sorting method
-                cout << c->Block << " - Case Number: " << c->CaseNumber << ", Arrest: ";
-                if(c->Arrest)
-                    cout << "Yes";
-                else
-                    cout << "No";
-                cout << ", Domestic: ";
-                if(c->Domestic)
-                    cout << "Yes";
-                else
-                    cout << "No";
-                cout << endl;
-            }
-            // print the total number of crimes in that community area at the end
-            cout << "-----" << endl << "Total crimes in community area " << id << ": " << ComAreaCrimes.size() << endl;
+            getInfo(data, id);
         } else {
-            cout
-                    << "You didn't enter a valid community area number. See this link for more information about the community areas of Chicago: "
-                    << endl
-                    << "https://www.chicago.gov/content/dam/city/depts/doit/general/GIS/Chicago_Maps/Citywide_Maps/Community_Areas_W_Numbers.pdf"
-                    << endl;
+            cout << "You didn't enter a valid community area number. See this link for more information about the community areas of Chicago: " << endl
+                << "https://www.chicago.gov/content/dam/city/depts/doit/general/GIS/Chicago_Maps/Citywide_Maps/Community_Areas_W_Numbers.pdf"
+                << endl;
             return 2;
         }
     }
